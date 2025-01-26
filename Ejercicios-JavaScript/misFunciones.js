@@ -31,5 +31,12 @@ function cambiarUnidades(id,valor){
         document.lasUnidades.unid_pie.value=3*valor;
     }
 
+    function dibujarCirCuad(){
+        var canvas=document.getElementById("myCanvas");
+        var ctx=canvas.getContext("2d");
+
+        ctx.fillStyle= "#333899";
+        ctx.fillRect(0,1,40,40);
+    }
 
 }
