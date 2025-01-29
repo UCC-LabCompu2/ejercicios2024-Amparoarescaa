@@ -31,12 +31,26 @@ function cambiarUnidades(id,valor){
         document.lasUnidades.unid_pie.value=3*valor;
     }
 
-    function dibujarCirCuad(){
-        var canvas=document.getElementById("myCanvas");
-        var ctx=canvas.getContext("2d");
+}
 
-        ctx.fillStyle= "#333899";
-        ctx.fillRect(0,1,40,40);
+function dibujarCirCuad(){
+    var canvas=document.getElementById("myCanvas");
+    var ctx=canvas.getContext("2d");
+
+    ctx.fillStyle= "#333899";
+    ctx.fillRect(0,1,40,40);
+}
+
+
+function convertirGR(id){
+    var grad,rad;
+    if(id=="grados") {
+        grad = document.getElementById("grados").value;
+        rad = (grad * Math.PI) / 180;
+    }else if(id=="radianes") {
+        rad=document.getElementById("radianes").value;
+        grad=(rad*180)/Math.PI;
     }
-
+    document.getElementById("grados").value=grad;
+    document.getElementById("radianes").value=rad;
 }
