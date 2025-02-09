@@ -88,6 +88,51 @@ function limpiarCanvas(){
 
 }
 
+function dibujarCuadriculado(){
+    var canvas=document.getElementById("miCanvas");
+    var ctx = canvas.getContext("2d");
+    var alturaMax=canvas.height;
+    var anchoMax=canvas.width;
+
+    //dibujar lineas horizontales
+    ctx.beginPath();
+    for (var i=0; i<alturaMax;){
+        ctx.moveTo(0,20);
+        ctx.lineTo(anchoMax,20);
+        ctx.strokeStyle="#9e1414";
+        ctx.stroke();
+        i=i+20;
+    }
+    ctx.closePath();
+
+    //dibujar lineas verticales
+    ctx.beginPath();
+    for (var i=0; i<anchoMax;){
+        ctx.moveTo(i,0);
+        ctx.lineTo(i,alturaMax);
+        ctx.strokeStyle="#9e1414";
+        ctx.stroke();
+        i=i+20;
+    }
+    ctx.closePath();
+
+    //ejex
+    ctx.beginPath();
+    ctx.moveTo(0,alturaMax/2);
+    ctx.lineTo(anchoMax,alturaMax/2);
+    ctx.strokeStyle="#14309e";
+    ctx.stroke();
+    ctx.closePath();
+
+    //ejey
+    ctx.beginPath();
+    ctx.moveTo(anchoMax/2,0);
+    ctx.lineTo(anchoMax/2,alturaMax);
+    ctx.strokeStyle="#14309e";
+    ctx.stroke();
+    ctx.closePath();
+}
+
 
 function convertirGR(id){
     var grad,rad;
