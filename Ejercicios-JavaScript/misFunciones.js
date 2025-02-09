@@ -50,9 +50,42 @@ function cambiarUnidades(id,valor){
 function dibujarCirCuad(){
     var canvas=document.getElementById("myCanvas");
     var ctx=canvas.getContext("2d");
-
+    var xMax=canvas.width;
+    var yMax=canvas.height;
+    var margen=5;
     ctx.fillStyle= "#333899";
-    ctx.fillRect(0,1,40,40);
+    ctx.fillRect(0+margen,yMax-40-margen,40,40);
+
+    ctx.arc(xMax/2,yMax/2,20,0,3*Math.PI);
+    ctx.stroke();
+    ctx.fillStyle= "#993370";
+    ctx.fill();
+}
+
+var bandera;
+function dibujar(event){
+    var canvas=document.getElementById("canvasAAdibujar");
+    var ctx=canvas.getContext("2d");
+
+    var posX=event.clientX;
+    var posY=event.clientY;
+    console.log(posX,posY);
+
+    canvas.onmousemove = function(){bandera=true};
+    canvas.onmouseup = function(){bandera=false};
+
+    if(bandera){
+        ctx.fillRect(posx,posY,5,5);
+        ctx.fill;
+    }
+}
+
+function limpiarCanvas(){
+    var canvas=document.getElementById("canvasAAdibujar");
+    var ctx=canvas.getContext("2d");
+
+    canvas.width=canvas.width;
+
 }
 
 
@@ -107,4 +140,16 @@ function calcularDiv(){
     num1= Number(document.getElementsByName("div_num1")[0].value);
     num2= document.getElementsByName("div_num2")[0].value;
     document.getElementsByName("div_total")[0]. innerHTML = num1 / Number(num2);
+}
+
+function cargarWeb(){
+    var cant,unidad,urlComp;
+    cant= document.getElementById("distancia").value;
+    unidad=document.getElementByName("unidades")[0].value;
+    urlComp="segundaWeb.html#"+cant+"#"+unidad;
+    window.open(urlComp);
+}
+
+function cargarResultado(){
+
 }
